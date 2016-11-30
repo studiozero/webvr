@@ -1,0 +1,195 @@
+<!-- OH HAI 
+This was made by Studio Zero - email us at team@studiozero.co
+-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rogue One</title>
+  <script src="../assets/js/aframe-v0.3.2.min.js"></script>
+  <script src="rogue.js"></script>
+
+
+  <link rel="shortcut icon" href="../assets/images/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="../assets/images/favicon.ico" type="image/x-icon">
+
+  <style>
+
+    html,body{
+      margin:0;
+      padding:0;
+      background:black;
+    }
+    
+    #intro{
+      background:black;
+      color: #a08066;
+      overflow: hidden;
+      position: absolute;
+      top:0;left:0;right:0;bottom: 0;
+    }
+
+    #main{
+      display: none;
+    }
+
+    .container{
+      width:80%;
+      margin:100px auto;
+    }
+
+    .container h2{
+      text-align: center;
+    }
+
+    h1 img{
+      max-width: 100%;
+    }
+
+    #choose > div{
+      float:left;
+      width:50%;
+      text-align: center;
+    }
+
+    .box{
+      position: absolute;
+      overflow: hidden;
+      bottom: 10%;
+      left: 50%;
+      margin-left:-325px;
+      width: 650px;
+    }
+
+    .box h3{
+      text-align: center;
+    }
+
+
+    @media (max-width: 425px) {
+
+      .box{
+        margin-left:-160px;
+        width: 320px;
+      }
+      
+    }
+
+    @media only screen and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
+      .container{
+        width:80%;
+        margin:0 auto;
+      }
+
+      .box{
+        bottom:5%;
+      }
+
+      .box h3{
+        margin:0;
+      }
+
+      #choose h4{
+        margin:0;
+      }
+    }
+
+    @media only screen and (-webkit-min-device-pixel-ratio: 3.5) and (orientation:landscape) {
+      .container{
+        width:80%;
+        margin:0 auto;
+      }
+
+      .box{
+        bottom:5%;
+      }
+
+      .box h3{
+        margin:0;
+      }
+
+      #choose h4{
+        margin:0;
+      }
+    }
+
+    #mono:hover, #stereo:hover{
+      cursor: pointer;
+    }
+
+
+
+  </style>
+</head>
+<body>
+
+
+<!-- INTRO -->
+    <div id="intro" class="screen">
+      <div class="container">
+        <h1><img src="logo.png"></h1>
+        
+        <h2>A VIRTUAL REALITY POSTER</h2>
+
+      <div class="box">
+        <h3>CHOOSE YOUR EXPERIENCE</h3>
+          <div id="choose">
+            
+            <div id="mono">
+              <img class="choice" src="btn_mono.png" />
+              <h4>MONOSCOPIC</h4>
+            </div>
+      
+            <div id="stereo">
+              <img class="choice" src="btn_stereo.png" />
+              <h4>STEREOSCOPIC</h4>
+            </div>
+          
+          </div>
+      </div>
+      </div>
+    </div>
+    
+    
+    <a-scene id="main" visible="false">
+      <a-assets>
+        <img id="r1" src="https://s3-eu-west-1.amazonaws.com/webvr-assets/rogueone.jpg">
+        <img src="button.png" id="play">
+        <img src="pause.png" id="pause">
+        <video id="trailer" src="https://s3-eu-west-1.amazonaws.com/webvr-assets/trailer.mp4" playsinline webkit-playsinline="webkit-playsinline" autoplay="disabled"></video>
+      </a-assets>
+
+      <a-curvedimage src="#r1" radius="7.2" theta-length="360" height="9" rotation="0 0 0" scale="1.2 1.2 1.2"></a-curvedimage>
+
+      <a-video src="#trailer" width="16" height="9" position="0.11 3.27 7.19" material="color:#FFF;shader:flat;side:double;transparent:true;src:#trailer" geometry="primitive:plane;width:16;height:9" rotation="0 180 0" scale="0.5 0.5 0.5"></a-video>
+
+      <a-image src="#play" position="0.1 -2 6.5" transparent="true" material="color:#FFF;shader:flat;side:double;transparent:true;src:#play" geometry="primitive:plane;height:0.7;width:2.5" rotation="0 180 0" id="play-button" visible="true">
+        <a-animation begin="mouseenter" attribute="position" from="0.1 -2 6.5" to="0.1 -2 6" dur="400"></a-animation>
+        <a-animation begin="mouseleave" attribute="position" from="0.1 -2 6" to="0.1 -2 6.5" dur="400"></a-animation>
+      </a-image>
+
+
+      <a-sky color="#000"></a-sky>
+      <a-entity camera rotation="0 180 0" position="0 0 0" look-controls>
+        <a-entity position="0 0 -3" geometry="primitive:ring;radiusOuter:1" material="color:white;shader:flat" cursor="fuse:true;fuseTimeout: 600" scale="0.1 0.1 0.5" raycaster="">
+        </a-entity>
+      </a-entity>
+      </a-entity>
+    </a-scene>
+    
+
+<script>
+  (function(s,t,u,d,i,o,z){s['GoogleAnalyticsObject']=i;s[i]=s[i]||function(){
+  (s[i].q=s[i].q||[]).push(arguments)},s[i].l=1*new Date();o=t.createElement(u),
+  z=t.getElementsByTagName(u)[0];o.async=1;o.src=d;z.parentNode.insertBefore(o,z)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-88238312-1', 'auto');
+  ga('send', 'pageview');
+</script>
+  
+</body>
+</html>
