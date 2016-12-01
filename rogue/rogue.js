@@ -16,16 +16,17 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 
   mono.addEventListener("click", function(){
-  	enter();
+  	bgAudio.pause();
+    enter();
   })
 
   stereo.addEventListener("click", function(){
-  	enter();
+  	bgAudio.pause();
+    enter();
   	scene.enterVR();
   })
 
   var enter = function(){
-    bgAudio.pause();
 		trailer.play();
     trailer.pause();
 
