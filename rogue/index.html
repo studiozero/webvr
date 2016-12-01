@@ -69,6 +69,60 @@ This was made by Studio Zero - email us at team@studiozero.co
     }
 
 
+    /* Animations */
+
+    @-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+    @-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+    @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+
+    .fade-in {
+      opacity:0;
+      -webkit-animation:fadeIn ease-in 1;  /* call our keyframe named fadeIn, use animattion ease-in and repeat it only 1 time */
+      -moz-animation:fadeIn ease-in 1;
+      animation:fadeIn ease-in 1;
+
+      -webkit-animation-fill-mode:forwards;  /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
+      -moz-animation-fill-mode:forwards;
+      animation-fill-mode:forwards;
+
+      -webkit-animation-duration:3s;
+      -moz-animation-duration:3s;
+      animation-duration:3s;
+    }
+
+    .fade-in.one {
+      -webkit-animation-delay: 0.7s;
+      -moz-animation-delay: 0.7s;
+      animation-delay: 0.7s;
+    }
+
+    .fade-in.two {
+      -webkit-animation-delay: 3.2s;
+      -moz-animation-delay:3.2s;
+      animation-delay: 3.2s;
+    }
+
+    .fade-in.three {
+      -webkit-animation-delay: 5.6s;
+      -moz-animation-delay: 5.6s;
+      animation-delay: 5.6s;
+    }
+
+    .fade-in.four {
+      -webkit-animation-delay: 7.6s;
+      -moz-animation-delay: 7.6s;
+      animation-delay: 7.6s;
+    }
+
+    .fade-in.five {
+      -webkit-animation-delay: 8s;
+      -moz-animation-delay: 8s;
+      animation-delay: 8s;
+    }
+
+
+
+
     @media (max-width: 425px) {
 
       .box{
@@ -122,6 +176,8 @@ This was made by Studio Zero - email us at team@studiozero.co
 
 
 
+
+
   </style>
 </head>
 <body>
@@ -129,21 +185,26 @@ This was made by Studio Zero - email us at team@studiozero.co
 
 <!-- INTRO -->
     <div id="intro" class="screen">
+      <audio id="bgAudio" autoplay="autoplay" hidden>  
+        <source src="http://res.cloudinary.com/studio-zero/video/upload/v1480634853/music_wzk43z.mp3" />  
+      </audio> 
+      
+
       <div class="container">
-        <h1><img src="logo.png"></h1>
+        <h1 class="fade-in one"><img src="logo.png"></h1>
         
-        <h2>A VIRTUAL REALITY POSTER</h2>
+        <h2 class="fade-in two">A VIRTUAL REALITY POSTER</h2>
 
       <div class="box">
-        <h3>CHOOSE YOUR EXPERIENCE</h3>
+        <h3 class="fade-in three">CHOOSE YOUR EXPERIENCE</h3>
           <div id="choose">
             
-            <div id="mono">
+            <div class="fade-in four" id="mono">
               <img class="choice" src="btn_mono.png" />
               <h4>MONOSCOPIC</h4>
             </div>
       
-            <div id="stereo">
+            <div class="fade-in five" id="stereo">
               <img class="choice" src="btn_stereo.png" />
               <h4>STEREOSCOPIC</h4>
             </div>
@@ -156,10 +217,10 @@ This was made by Studio Zero - email us at team@studiozero.co
     
     <a-scene id="main" visible="false">
       <a-assets>
-        <img id="r1" src="https://s3-eu-west-1.amazonaws.com/webvr-assets/rogueone.jpg">
+        <img id="r1" src="http://res.cloudinary.com/studio-zero/image/upload/v1480634545/rogueone_1_b9pfge.jpg">
         <img src="button.png" id="play">
         <img src="pause.png" id="pause">
-        <video id="trailer" src="https://s3-eu-west-1.amazonaws.com/webvr-assets/trailer.mp4" playsinline webkit-playsinline="webkit-playsinline" autoplay="disabled"></video>
+        <video id="trailer" src="http://res.cloudinary.com/studio-zero/video/upload/v1480634080/trailer_qyvx0o.mp4" playsinline webkit-playsinline="webkit-playsinline" autoplay="disabled"></video>
       </a-assets>
 
       <a-curvedimage src="#r1" radius="7.2" theta-length="360" height="9" rotation="0 0 0" scale="1.2 1.2 1.2"></a-curvedimage>
